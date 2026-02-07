@@ -1,14 +1,29 @@
+@font-face {
+    font-family: 'silk-serif';
+    src: url('silkserif.ttf') format('truetype');
+}
 *{
     padding:0;
     margin:0;
     box-sizing: border-box;
-    font-family:'Plain Light';
+    font-family:'Plain light';
     color:#fff;
 } 
 
 html,body{
     height:100%;
     width:100%;
+}
+#crsr{
+    height:2.4vw;
+    width:2.4vw;
+    border-radius:50%;
+    /* background-color: #fff; */
+    border: 1px solid #f1dbdb;
+    position:fixed;
+    z-index:999;
+    mix-blend-mode:difference;
+    transform:translate(-50%,-50%);
 }
 
 #loader{
@@ -55,14 +70,102 @@ html,body{
     font-size:6.5vw;
     text-transform: uppercase;
     font-weight:900;
+    opacity:0;
+    animation: anime 1s infinite;
 }
+
+@keyframes anime {
+    0%{
+        font-family:'plain light';
+        -webkit-text-stroke:1px #fff;
+        color:#fff;
+        font-weight:500;
+        opacity:1;
+    }
+    48%{
+        font-family:'plain light';
+        -webkit-text-stroke:1px #fff;
+        color:#fff;
+        font-weight:500;
+        opacity:0;
+    }
+    50%{
+        font-family:'silk-serif';
+        -webkit-text-stroke:1px #fff;
+        font-weight:500;
+        color:transparent;
+        opacity:1;
+    }
+    100%{
+        font-family:'silk-serif';
+        -webkit-text-stroke:1px #fff;
+        font-weight:500;
+        color:transparent;
+        opacity:0;
+    }
+}
+
 #main{
     position:relative;
-    background-color: #111;
+    background-color: #030303;
 }
 
 #page1{
     height:100vh;
     width:100%;
     background-color: #151515;
+}
+
+#page1 #nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:2.3vw 4.5vw;
+}
+#nav-part2{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:3vw;
+}
+#nav-part2 h4{
+    font-size:1vw;
+    font-weight:500;
+    cursor: pointer;
+}
+
+.hero{
+    /* background-color: red; */
+    width:71%;
+    margin-left:28%;
+    height:fit-content;
+    overflow: hidden;
+    display:flex;
+    align-items:center;
+    position:relative;
+    z-index:999;
+}
+.hero:nth-child(2){
+    margin-top:21vh;
+}
+.hero h1{
+    font-size:7.3vw;
+    font-weight:600;
+    text-transform: uppercase;
+    line-height:7.4vw;
+
+}
+
+.hero h2, .hero h3{
+    font-size:7.3vw;
+    font-weight:600;
+    text-transform: uppercase;
+    line-height:7.4vw;
+
+}
+
+.hero h2:hover{
+    -webkit-text-stroke: 2px #fff;
+    color:transparent;
+    font-weight:600;
 }
